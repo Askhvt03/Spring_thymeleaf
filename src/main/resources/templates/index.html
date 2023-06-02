@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head th:insert="head.html">
+</head>
+<body>
+<div class="container-fluid">
+    <div th:insert="navbar.html"></div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>SURNAME</th>
+                        <th>EXAM</th>
+                        <th>MARK</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="st : ${students}" th:style="${st.exam < 50 ? 'color: red;' : 'color: black;'}">
+                        <td th:text="${st.id}"></td>
+                        <td th:text="${st.name}"></td>
+                        <td th:text="${st.surname}"></td>
+                        <td th:text="${st.exam}"></td>
+                        <td th:text="${st.mark}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
